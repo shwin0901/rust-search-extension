@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ | Rust Search Extension - The ultimate search extension for Rust </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#F9BB2D">
+    <meta name="description"
+          content="Rust Search Extension is a handy browser plugin to help you search Rust docs, crates, builtin attributes, books and error codes, etc instantly.">
+    <meta name="keywords"
+          content="rust, rust-lang, chrome extension, firefox extension, docs, rust docs, crates, rust attributes, rust books, rust error codes, search">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="&#x2F;index.css">
+</head>
+<body>
+
+<header class="box-shadow">
+    
+
+<a href="&#x2F;">
+    <div class="logo">
+        <img src="&#x2F;logo.png" alt="rust-search-extension-logo">
+        Rust Search Extension
+    </div>
+</a>
+
+<nav>
+    <a class="nav-item subtitle-text" href="https://blog.huhu.io">Blog</a>
+    
+    <a class="nav-item subtitle-text" href="&#x2F;faq&#x2F;">FAQ</a>
+    
+    <a class="nav-item subtitle-text" href="&#x2F;changelog&#x2F;">Changelog</a>
+    
+    <a class="nav-item subtitle-text" href="&#x2F;privacy&#x2F;">Privacy</a>
+    
+    <a class="nav-item subtitle-text" href="https://github.com/huhu/rust-search-extension">Github</a>
+</nav>
+
+</header>
+
+
+<main>
+    
+    <div class="toc">
+        <div class="toc-sticky">
+        
+            
+        
+        
+            
+            <div class="toc-item">
+                <a class="subtext" href="/faq/#permissions">Permissions</a>
+            </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="/faq/#why-the-extension-requires-read-browsing-history-permission"><small>- Why the extension requires read browsing history permission?</small></a>
+                </div>
+                
+            
+        
+            <div class="toc-item">
+                <a class="subtext" href="/faq/#caveats">Caveats</a>
+            </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="/faq/#why-local-file-rust-doc-not-work-properly-on-firefox"><small>- Why local file: rust doc not work properly on Firefox?</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="/faq/#any-workaround-to-support-offline-mode-on-firefox"><small>- Any workaround to support offline mode on Firefox?</small></a>
+                </div>
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="/faq/#why-sync-the-latest-crates-index-on-popup-page-doesn-t-work-on-firefox"><small>- Why sync the latest crates index on popup page doesn&#x27;t work on Firefox?</small></a>
+                </div>
+                
+            
+        
+        
+        </div>
+    </div>
+    
+
+    <div class="content text">
+        
+<div class="heading-text">Frequently asked questions</div>
+<h1 id="permissions">Permissions</h1>
+<h3 id="why-the-extension-requires-read-browsing-history-permission">Why the extension requires read browsing history permission?</h3>
+<p>The sole permission required by the extension is <a href="https://developer.chrome.com/extensions/tabs">tabs</a>, which gives accessing browser tabs information capability. 
+We use this permission to open the search result in the <code>current tab</code> or <code>new tab</code> for the sole purpose. Feel feel to check our <a href="/privacy/">Privacy Policy</a> for more information. </p>
+<h1 id="caveats">Caveats</h1>
+<h3 id="why-local-file-rust-doc-not-work-properly-on-firefox">Why local <code>file:</code> rust doc not work properly on Firefox?</h3>
+<p>For security reasons, in Firefox, <code>file:</code> URLs is an unprivileged URL, accessing to those unprivileged URLs are prohibited. 
+See the <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/create">MDN documentation</a> for more detail.</p>
+<h3 id="any-workaround-to-support-offline-mode-on-firefox">Any workaround to support offline mode on Firefox?</h3>
+<p>Sure. A good choice is use http server! For example using python <strong>http.server</strong> module:</p>
+<pre style="background-color:#ffffff;">
+<span style="color:#323232;">$ cd your-rust-doc-directory
+$ python -m http.server
+Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+</span></pre>
+<p>Then set <code>http://0.0.0.0:8000</code> as your local doc path.</p>
+<h3 id="why-sync-the-latest-crates-index-on-popup-page-doesn-t-work-on-firefox">Why sync the latest crates index on popup page doesn't work on Firefox?</h3>
+<p>This feature relies on the browser's <code>script-src-elem</code> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content Security Policy</a>, 
+which not supported by Firefox. See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src-elem">Mozilla documentation</a>.</p>
+
+
+    </div>
+
+</main>
+
+<footer>
+    <small class="subtext">
+        <a href="https://huhu.io">Huhu.io</a> © 2020
+    </small>
+</footer>
+</body>
+</html>
